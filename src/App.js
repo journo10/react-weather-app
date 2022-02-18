@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import axios from "axios";
+import WeatherList from "./components/WeatherList";
+import SearchInput from "./components/SearchInput";
 
 function App() {
+  const [inputText, setInputText] = useState("");
+  const [weather, setWeather] = useState({});
+
+  const getWeatherData = () => {
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${inputText}&appid=${process.env.REACT_APP_KEY}&lang=tr&units=metric`
+      )
+      .then((res) => setWeather(res.data));
+    setInputText(""); //input'un içinin temizlenmesi
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchInput
+        inputText={inputText}
+        setInputText={setInputText}
+        getWeatherData={getWeatherData}
+      />
+      <WeatherList weather={weather} />
     </div>
   );
 }

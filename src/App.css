@@ -1,38 +1,55 @@
 .App {
   text-align: center;
+  width: 100%;
+  height: 657px;
+  background-image: url("/public/galata.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  opacity: 0.9;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.search {
+  position: relative;
+  top: 15%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+main {
+  position: relative;
+  top: 20%;
+  margin-top: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.weather {
+  font-size: 30px;
+  font-weight: bold;
+  color:black;
+}
+
+.search-box {
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  padding: 15px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.search-box:hover {
+  box-sizing: border-box;
+  outline: none;
+}
+
+.btn-search {
+  width: 50px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+}
+
+.btn-search:hover {
+  background-color: black;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
